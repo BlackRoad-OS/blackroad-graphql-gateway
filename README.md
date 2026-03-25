@@ -1,109 +1,48 @@
-# BlackRoad GraphQL Gateway
+<!-- BlackRoad SEO Enhanced -->
 
-Unified GraphQL API endpoint for the entire BlackRoad ecosystem - 40+ products, 15 GitHub orgs, 1,085 repos.
+# ulackroad graphql gateway
 
-## Live Endpoints
+> Part of **[BlackRoad OS](https://blackroad.io)** — Sovereign Computing for Everyone
 
-- **GraphQL**: https://blackroad-graphql-gateway.amundsonalexa.workers.dev/graphql
-- **GraphiQL**: https://blackroad-graphql-gateway.amundsonalexa.workers.dev/graphql (GET)
-- **Health**: https://blackroad-graphql-gateway.amundsonalexa.workers.dev/health
+[![BlackRoad OS](https://img.shields.io/badge/BlackRoad-OS-ff1d6c?style=for-the-badge)](https://blackroad.io)
+[![BlackRoad OS](https://img.shields.io/badge/Org-BlackRoad-OS-2979ff?style=for-the-badge)](https://github.com/BlackRoad-OS)
+[![License](https://img.shields.io/badge/License-Proprietary-f5a623?style=for-the-badge)](LICENSE)
 
-## Features
+**ulackroad graphql gateway** is part of the **BlackRoad OS** ecosystem — a sovereign, distributed operating system built on edge computing, local AI, and mesh networking by **BlackRoad OS, Inc.**
 
-### Queries
-- `me` - Current authenticated user
-- `users` - List all users
-- `agents` - List AI agents (filter by type, status)
-- `deployments` - List deployments (filter by service, status)
-- `devices` - Device fleet inventory
-- `products` - All BlackRoad products
-- `errors` - System errors and alerts
-- `infrastructureStats` - GitHub orgs, repos, devices, agents
-- `usage` - API calls, compute hours, storage
+## About BlackRoad OS
 
-### Mutations
-- `createUser` / `updateUser` / `deleteUser` - User management
-- `deploy` / `cancelDeployment` / `rollback` - Deployment operations
-- `scaleAgents` / `restartAgent` - Agent management
-- `sendNotification` - Multi-channel notifications
-- `updateConfig` - Service configuration
+BlackRoad OS is a sovereign computing platform that runs AI locally on your own hardware. No cloud dependencies. No API keys. No surveillance. Built by [BlackRoad OS, Inc.](https://github.com/BlackRoad-OS-Inc), a Delaware C-Corp founded in 2025.
 
-### Subscriptions (Real-time)
-- `deploymentUpdated` - Deployment status changes
-- `agentStatusChanged` - Agent health updates
-- `errorOccurred` - New errors/alerts
-- `usageThresholdExceeded` - Usage alerts
+### Key Features
+- **Local AI** — Run LLMs on Raspberry Pi, Hailo-8, and commodity hardware
+- **Mesh Networking** — WireGuard VPN, NATS pub/sub, peer-to-peer communication
+- **Edge Computing** — 52 TOPS of AI acceleration across a Pi fleet
+- **Self-Hosted Everything** — Git, DNS, storage, CI/CD, chat — all sovereign
+- **Zero Cloud Dependencies** — Your data stays on your hardware
 
-## Example Queries
+### The BlackRoad Ecosystem
+| Organization | Focus |
+|---|---|
+| [BlackRoad OS](https://github.com/BlackRoad-OS) | Core platform and applications |
+| [BlackRoad OS, Inc.](https://github.com/BlackRoad-OS-Inc) | Corporate and enterprise |
+| [BlackRoad AI](https://github.com/BlackRoad-AI) | Artificial intelligence and ML |
+| [BlackRoad Hardware](https://github.com/BlackRoad-Hardware) | Edge hardware and IoT |
+| [BlackRoad Security](https://github.com/BlackRoad-Security) | Cybersecurity and auditing |
+| [BlackRoad Quantum](https://github.com/BlackRoad-Quantum) | Quantum computing research |
+| [BlackRoad Agents](https://github.com/BlackRoad-Agents) | Autonomous AI agents |
+| [BlackRoad Network](https://github.com/BlackRoad-Network) | Mesh and distributed networking |
+| [BlackRoad Education](https://github.com/BlackRoad-Education) | Learning and tutoring platforms |
+| [BlackRoad Labs](https://github.com/BlackRoad-Labs) | Research and experiments |
+| [BlackRoad Cloud](https://github.com/BlackRoad-Cloud) | Self-hosted cloud infrastructure |
+| [BlackRoad Forge](https://github.com/BlackRoad-Forge) | Developer tools and utilities |
 
-```graphql
-# Infrastructure Overview
-query {
-  infrastructureStats {
-    githubOrgs
-    repositories
-    cloudflarePages
-    devices
-    totalAiTops
-    activeAgents
-  }
-}
+### Links
+- **Website**: [blackroad.io](https://blackroad.io)
+- **Documentation**: [docs.blackroad.io](https://docs.blackroad.io)
+- **Chat**: [chat.blackroad.io](https://chat.blackroad.io)
+- **Search**: [search.blackroad.io](https://search.blackroad.io)
 
-# List Online Agents
-query {
-  agents(status: ONLINE, limit: 10) {
-    name
-    type
-    tasksCompleted
-    uptimePercent
-  }
-}
+---
 
-# Deploy a Service
-mutation {
-  deploy(input: {
-    service: "blackroad-dashboard"
-    environment: PRODUCTION
-    version: "v2.5.0"
-  }) {
-    id
-    status
-    startedAt
-  }
-}
-```
 
-## Tech Stack
-
-- **GraphQL Yoga** - GraphQL server
-- **Cloudflare Workers** - Edge deployment
-- **TypeScript** - Type safety
-
-## Development
-
-```bash
-# Install dependencies
-npm install
-
-# Start dev server
-npm run dev
-
-# Deploy to Cloudflare
-npm run deploy
-```
-
-## Infrastructure
-
-| Resource | Count |
-|----------|-------|
-| GitHub Orgs | 15 |
-| Repositories | 1,085 |
-| Cloudflare Pages | 205 |
-| KV Namespaces | 35 |
-| Devices | 8 |
-| Total AI TOPS | 52 |
-| Active Agents | 314 |
-
-## License
-
-Proprietary - BlackRoad OS, Inc.
